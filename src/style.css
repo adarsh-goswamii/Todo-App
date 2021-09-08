@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(./Fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lemon;
+    src: url(./Fonts/Lemon\ Tuesday.otf);
+}
+
+body {
+    box-sizing: border-box;
+    --primary-color: #00f0b5;
+    --secondary-color: #e8d6cb;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --grey-color: #bdbdbd;
+}
+
+#root {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--secondary-color);
+    display: grid;
+    grid-template-columns: 10rem 1fr 10rem;
+}
+
+.main .btn {
+    background-color: var(--primary-color);
+    font-family: Poppins;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+    padding: 0.3rem 1.5rem;
+    margin-right: 1rem;
+    width: 8rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.main .btn p {
+    color: var(--white-color);
+    pointer-events: none;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    grid-column: 2/3;
+}
+
+.main {
+    background-color: var(--white-color);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.list-item h3 {
+    color: var(--black-color);
+    font-size: 1.2rem;
+    font-family: Poppins;
+    font-weight: 100;
+}
+
+.btn:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+    font-family: Lemon;
+    font-weight: 900;
+    color: var(--primary-color);
+    font-size: 2rem;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+
+.list-container {
+    width: 90%;
+    height: 100%;
+    overflow-y: scroll;
+    visibility: visible;
+    pointer-events: all;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list-container h3 {
+    font-family: Poppins;
+    color: var(--black-color);
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 100%;
+    /* background-color: var(--primary-color); */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 1rem;
+}
+
+.list-item.completed h3 {
+    text-decoration: line-through;
+}
+
+.btn.completed {
+    pointer-events: none;
+    background-color: var(--grey-color);
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+}
+
+.btn-container .icon {
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    height: 3rem;
+    width: 3rem;
+    fill: var(--white-color);
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    transition: all .5s ease;
+}
+
+.btn-container .icon:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+.add-list {
+    visibility: hidden;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.add-list.show {
+    visibility: visible;
+    pointer-events: all;
+}
+
+input {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-family: Poppins;
+
+    width: 50%;
+    margin-right: 1rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.add-list .btn {
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    background-color: var(--white-color);
+    border: 2px solid var(--primary-color);
+    border-radius: .4rem;
+    cursor: pointer;
+}
+
+.add-list .btn p {
+    color: var(--primary-color);
+}
+
+.add-list .btn:hover {
+    background-color: var(--primary-color);
+}
+
+.add-list .btn:hover p {
+    color: var(--white-color);
+}
+
+.empty {
+    visibility: hidden;
+    pointer-events: none;   
+    position: absolute;
+}
+
+img {
+    width: 50%;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+}
+
+.icon.close {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    fill: var(--white-color);
+
+    top: 3rem;
+    right: 3rem;
+    transition: transform .5s ease;
+}
+
+.add-list .icon.close:hover {
+    transform: rotate(180deg);
+    box-shadow: none;
+}
